@@ -44,6 +44,7 @@
 - `geoip:direct` — объединённые подсети VK Company и Yandex (быстрый прямой маршрут).
 - `geoip:direct-vk` — подсети VK Company (VK, Mail.Ru, OK, My.Games и т.д.).
 - `geoip:direct-yandex` — подсети Yandex (Yandex.Cloud, Yandex.Disk и т.д.).
+- `geoip:local` — частные/локальные диапазоны (RFC1918, loopback, link-local и др.).
 
 # Локальная проверка
 

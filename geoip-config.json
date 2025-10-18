@@ -13,6 +13,14 @@
       "action": "add",
       "args": {
         "name": "direct",
+        "uri": "./custom-geoip/local.txt"
+      }
+    },
+    {
+      "type": "text",
+      "action": "add",
+      "args": {
+        "name": "direct",
         "uri": "./custom-geoip/yandex-direct.txt"
       }
     },
@@ -22,6 +30,14 @@
       "args": {
         "name": "direct-vk",
         "uri": "./custom-geoip/vk-direct.txt"
+      }
+    },
+    {
+      "type": "text",
+      "action": "add",
+      "args": {
+        "name": "local",
+        "uri": "./custom-geoip/local.txt"
       }
     },
     {
@@ -43,7 +59,8 @@
         "wantedList": [
           "direct",
           "direct-vk",
-          "direct-yandex"
+          "direct-yandex",
+          "local"
         ]
       }
     }
