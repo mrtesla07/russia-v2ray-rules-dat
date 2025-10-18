@@ -31,6 +31,7 @@
 - `geosite:category-bank-ru` — крупнейшие российские банки.
 - `geosite:steam` — расширенный список Steam/Valve, включая CDN и зеркала.
 - `geosite:win-update` — адреса службы обновлений Windows.
+- `geosite:private` — специальные/локальные домены (RFC 2606/6761 и т.п.).
 
 Вы можете расширять набор, добавляя новые файлы в `custom-lists/` и/или подключая дополнительные списки из DLC через `scripts/geosite-dlc-lists.txt`.
 
