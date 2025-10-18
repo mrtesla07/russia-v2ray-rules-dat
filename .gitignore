@@ -1,0 +1,6 @@
+# Work directories produced during local runs
+domain-list-community/
+domain-list-custom/
+geodat2srs/
+publish/
+tmp/
