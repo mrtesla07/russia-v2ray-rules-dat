@@ -2,7 +2,7 @@ name: build.yml
 on:
   workflow_dispatch:
   schedule:
-    - cron: "30 3,9,15,21 * * *"
+    - cron: "0 0,6 * * *"
   push:
     branches:
       - master
