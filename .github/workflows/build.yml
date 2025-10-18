@@ -20,8 +20,6 @@ jobs:
         run: |
           echo "RELEASE_NAME=Released on $(date +%Y%m%d%H%M)" >> $GITHUB_ENV
           echo "TAG_NAME=$(date +%Y%m%d%H%M)" >> $GITHUB_ENV
-          
-          echo "GEOIP_URL=https://raw.githubusercontent.com/runetfreedom/russia-blocked-geoip/release/geoip.dat" >> $GITHUB_ENV
         shell: bash
 
       - name: Checkout runetfreedom/geodat2srs
@@ -58,11 +56,12 @@ jobs:
           cp ./custom-lists/* ./tmp/geosite-data/
         shell: bash
 
-      - name: Collect files
+      - name: Build custom geoip.dat
         run: |
+          set -euo pipefail
           mkdir -p ./publish
-          curl -sSL $GEOIP_URL > ./publish/geoip.dat
-          curl -sSL $GEOIP_URL.sha256sum > ./publish/geoip.dat.sha256sum
+          go run github.com/v2fly/geoip@latest -c ./geoip-config.json
+          sha256sum ./publish/geoip.dat > ./publish/geoip.dat.sha256sum
 
       - name: Build custom geosite.dat
         working-directory: domain-list-custom

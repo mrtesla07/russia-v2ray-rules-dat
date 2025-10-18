@@ -1,0 +1,51 @@
+{
+  "input": [
+    {
+      "type": "text",
+      "action": "add",
+      "args": {
+        "name": "direct",
+        "uri": "./custom-geoip/vk-direct.txt"
+      }
+    },
+    {
+      "type": "text",
+      "action": "add",
+      "args": {
+        "name": "direct",
+        "uri": "./custom-geoip/yandex-direct.txt"
+      }
+    },
+    {
+      "type": "text",
+      "action": "add",
+      "args": {
+        "name": "direct-vk",
+        "uri": "./custom-geoip/vk-direct.txt"
+      }
+    },
+    {
+      "type": "text",
+      "action": "add",
+      "args": {
+        "name": "direct-yandex",
+        "uri": "./custom-geoip/yandex-direct.txt"
+      }
+    }
+  ],
+  "output": [
+    {
+      "type": "v2rayGeoIPDat",
+      "action": "output",
+      "args": {
+        "outputDir": "./publish",
+        "outputName": "geoip.dat",
+        "wantedList": [
+          "direct",
+          "direct-vk",
+          "direct-yandex"
+        ]
+      }
+    }
+  ]
+}

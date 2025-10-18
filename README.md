@@ -13,7 +13,7 @@
 2. К ним добавляются кастомные списки из каталога `custom-lists/`.
 3. Утилита `domain-list-custom` формирует итоговый `geosite.dat`, включающий только нужные нам категории.
 
-Таким образом, вы всегда получаете свежие домены из upstream и одновременно кастомные подборки под российские сервисы.
+Так вы всегда получаете свежие домены из upstream и параллельно собственные подборки под российские сервисы.
 
 # Какие категории входят сейчас
 
@@ -26,27 +26,34 @@
 - `geosite:category-torrent` — трекеры и dht-роутеры (см. `custom-lists/category-torrent`).
 - `geosite:twitch` — официальный список Twitch из DLC.
 - `geosite:trovo` — добавлен вручную, охватывает `trovo.live`, `trovoapp.com` и их поддомены.
-- `geosite:okko` — все сервисы онлайн-кинотеатра Okko.
-- `geosite:category-streaming-ru` — российские онлайн-кинотеатры и видеосервисы (ivi, Wink, KION, START, PREMIER, Аmediateka, кинопоиск, Rutube и др.).
+- `geosite:okko` — онлайн-кинотеатр Okko.
+- `geosite:category-streaming-ru` — российские онлайн-кинотеатры и видеосервисы (ivi, Wink, KION, START, PREMIER, Аmediateka, КиноПоиск, Rutube и др.).
 - `geosite:category-bank-ru` — крупнейшие российские банки.
 - `geosite:steam` — расширенный список Steam/Valve, включая CDN и зеркала.
 - `geosite:win-update` — адреса службы обновлений Windows.
 - `geosite:private` — специальные/локальные домены (RFC 2606/6761 и т.п.).
 
-Вы можете расширять набор, добавляя новые файлы в `custom-lists/` и/или подключая дополнительные списки из DLC через `scripts/geosite-dlc-lists.txt`.
+При необходимости добавляйте новые файлы в `custom-lists/` и/или подключайте дополнительные списки из DLC через `scripts/geosite-dlc-lists.txt`.
 
 # geoip.dat
 
-Файл geoip берётся из репозитория [runetfreedom/russia-blocked-geoip](https://github.com/runetfreedom/russia-blocked-geoip) и содержит агрегированные IP-диапазоны, используемые для обхода блокировок в РФ.
+Файл geoip собирается локально при помощи [v2fly/geoip](https://github.com/v2fly/geoip) и опирается на списки `custom-geoip/vk-direct.txt` и `custom-geoip/yandex-direct.txt` (конфигурация — `geoip-config.json`).
+
+Внутри итогового `geoip.dat` доступны списки:
+
+- `geoip:direct` — объединённые подсети VK Company и Yandex (быстрый прямой маршрут).
+- `geoip:direct-vk` — подсети VK Company (VK, Mail.Ru, OK, My.Games и т.д.).
+- `geoip:direct-yandex` — подсети Yandex (Yandex.Cloud, Yandex.Disk и т.д.).
 
 # Локальная проверка
-
-Чтобы воспроизвести сборку локально:
 
 ```powershell
 git clone https://github.com/v2fly/domain-list-community
 git clone https://github.com/runetfreedom/domain-list-custom
-$env:GOEXE = 'C:\Program Files\Go\bin\go.exe' # путь к go, если требуется
+$env:GOEXE = 'C:\Program Files\Go\bin\go.exe' # путь к go при необходимости
+
+mkdir publish
+& $env:GOEXE run github.com/v2fly/geoip@latest -c geoip-config.json
 
 mkdir tmp\geosite-data
 Get-Content scripts/geosite-dlc-lists.txt | ForEach-Object {
@@ -60,10 +67,11 @@ Copy-Item custom-lists\* tmp\geosite-data\
 & $env:GOEXE run ./domain-list-custom --datapath=tmp/geosite-data --datname=geosite.dat --exportlists= --togfwlist= --outputpath=tmp/geosite-output
 ```
 
-Итоговый файл появится в `tmp/geosite-output/geosite.dat`.
+После выполнения `geoip.dat` лежит в `publish/`, а `geosite.dat` — в `tmp/geosite-output/`.
 
 # Связанные проекты
 
+- [v2fly/geoip](https://github.com/v2fly/geoip) — генератор geoip.dat.
 - [runetfreedom/russia-blocked-geoip](https://github.com/runetfreedom/russia-blocked-geoip) — источник IP-диапазонов.
 - [runetfreedom/russia-blocked-geosite](https://github.com/runetfreedom/russia-blocked-geosite) — расширенный список доменов.
 - [runetfreedom/russia-v2ray-custom-routing-list](https://github.com/runetfreedom/russia-v2ray-custom-routing-list) — дополнительные правила маршрутизации.
