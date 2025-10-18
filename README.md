@@ -30,6 +30,7 @@
 - `geosite:category-streaming-ru` — российские онлайн-кинотеатры и видеосервисы (ivi, Wink, KION, START, PREMIER, Аmediateka, КиноПоиск, Rutube и др.).
 - `geosite:category-bank-ru` — крупнейшие российские банки.
 - `geosite:steam` — расширенный список Steam/Valve, включая CDN и зеркала.
+- `geosite:category-gaming-mmo` — игровые сервисы Lesta/Wargaming (WoT/WoWS/Blitz) и Gaijin (WarThunder и др.).
 - `geosite:win-update` — адреса службы обновлений Windows.
 - `geosite:private` — специальные/локальные домены (RFC 2606/6761 и т.п.).
 - `geosite:ru-all` — объединение всех перечисленных выше российских списков для кратких правил.
