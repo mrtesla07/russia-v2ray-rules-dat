@@ -2,7 +2,6 @@
 category-gov-ru
 category-media-ru
 category-ru
-category-ads-all
 mailru
 ok
 ozon
