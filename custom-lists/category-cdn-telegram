@@ -1,0 +1,6 @@
+# Telegram CDN для медиа (без звонков и прокси).
+domain:cdn-telegram.org
+domain:storage-cdn-telegram.org
+domain:telesco.pe
+domain:telegram-cdn.org
+domain:media-telegram-cdn.net

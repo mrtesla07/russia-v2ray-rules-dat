@@ -49,6 +49,12 @@
 - `geoip:direct-yandex` — подсети Yandex (Yandex.Cloud, Yandex.Disk и т.д.).
 - `geoip:local` — частные/локальные диапазоны (RFC1918, loopback, link-local и др.).
 
+# Дополнительные списки
+
+Не входят в `ru-all`, но готовы для ручного использования:
+
+- `geosite:category-cdn-telegram` — CDN Telegram для фото/видео/файлов (без звонков).
+
 # Локальная проверка
 
 ```powershell
