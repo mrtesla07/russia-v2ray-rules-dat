@@ -1,2 +1,4 @@
-trovo.live
-trovoapp.com
+# Домены добавлены в виде правил типа domain — V2Ray/Xray будет матчить
+# и сам домен, и все его поддомены.
+domain:trovo.live
+domain:trovoapp.com
