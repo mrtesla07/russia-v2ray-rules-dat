@@ -1,0 +1,88 @@
+playartifact.com
+s.team
+steam.tv
+steam-api.com
+steam-chat.com
+steamcommunity.com
+steamcontent.com
+steamdeck.com
+steamgames.com
+steampowered.com
+steamserver.net
+steamstatic.com
+steamusercontent.com
+underlords.com
+valvesoftware.com
+
+# edgecast
+edge.steam-dns.top.comcast.net
+
+# edgesuite
+full:steamcommunity-a.akamaihd.net.edgesuite.net
+
+# qtlglb regional cdn
+steam.apac.qtlglb.com
+steam.eca.qtlglb.com
+steam.naeu.qtlglb.com
+steam.ru.qtlglb.com
+
+# HIGHWINDS
+full:a4e8s8k3.map2.ssl.hwcdn.net
+full:f3b7q2p3.ssl.hwcdn.net
+
+# internode
+steam.cdn.on.net
+
+# orcon
+steam.cdn.orcon.net.nz
+steam.cdn.slingshot.co.nz
+
+# webra
+steam.cdn.webra.ru
+
+# Akamai
+full:steambroadcast.akamaized.net
+full:steamcdn-a.akamaihd.net
+full:steamcommunity-a.akamaihd.net
+full:steammobile.akamaized.net
+full:steampipe-kr.akamaized.net
+full:steampipe-partner.akamaized.net
+full:steampipe.akamaized.net
+full:steamstore-a.akamaihd.net
+full:steamusercontent-a.akamaihd.net
+full:steamuserimages-a.akamaihd.net
+full:steamvideo-a.akamaihd.net
+
+# Azure
+full:steamcloudsweden.blob.core.windows.net
+
+# WMSJ China CDN (@cn)
+csgo.wmsj.cn @cn
+dota2.wmsj.cn @cn
+wmsjsteam.com @cn
+
+# Steam China CDN (@cn)
+client-update.queniuqe.com @cn
+
+# Additional China CDN nodes (@cn)
+dl.steam.clngaa.com @cn
+
+# Regional storage mirrors (@cn)
+st.dl.bscstorage.net @cn
+st.dl.eccdnx.com @cn
+st.dl.pinyuncloud.com @cn
+
+# 8686c China mirror (@cn)
+steampowered.com.8686c.com @cn
+steamstatic.com.8686c.com @cn
+
+# Extra China mirrors (@cn)
+full:alibaba.cdn.steampipe.steamcontent.com @cn
+full:lv.queniujq.cn @cn
+full:xz.pphimalayanrt.com @cn
+
+# Official Steam China site (@cn)
+steamchina.com @cn
+
+# Valve China storefront (@cn)
+gstore.val.manlaxy.com @cn

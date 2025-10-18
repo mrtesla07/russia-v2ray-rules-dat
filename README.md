@@ -28,6 +28,8 @@
 - `geosite:trovo` — добавлен вручную, охватывает `trovo.live`, `trovoapp.com` и их поддомены.
 - `geosite:okko` — все сервисы онлайн-кинотеатра Okko.
 - `geosite:category-bank-ru` — крупнейшие российские банки.
+- `geosite:steam` — расширенный список Steam/Valve, включая CDN и зеркала.
+- `geosite:win-update` — адреса службы обновлений Windows.
 
 Вы можете расширять набор, добавляя новые файлы в `custom-lists/` и/или подключая дополнительные списки из DLC через `scripts/geosite-dlc-lists.txt`.
 
@@ -64,3 +66,4 @@ Copy-Item custom-lists\* tmp\geosite-data\
 - [runetfreedom/russia-blocked-geosite](https://github.com/runetfreedom/russia-blocked-geosite) — расширенный список доменов.
 - [runetfreedom/russia-v2ray-custom-routing-list](https://github.com/runetfreedom/russia-v2ray-custom-routing-list) — дополнительные правила маршрутизации.
 - [runetfreedom/geodat2srs](https://github.com/runetfreedom/geodat2srs) — конвертер dat → sing-box rule-set.
+- [hydraponique/roscomvpn-geosite](https://github.com/hydraponique/roscomvpn-geosite) — дополнительные списки доменов (Steam, Windows Update).
