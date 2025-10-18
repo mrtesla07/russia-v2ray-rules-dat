@@ -27,6 +27,7 @@
 - `geosite:twitch` — официальный список Twitch из DLC.
 - `geosite:trovo` — добавлен вручную, охватывает `trovo.live`, `trovoapp.com` и их поддомены.
 - `geosite:okko` — все сервисы онлайн-кинотеатра Okko.
+- `geosite:category-streaming-ru` — российские онлайн-кинотеатры и видеосервисы (ivi, Wink, KION, START, PREMIER, Аmediateka, кинопоиск, Rutube и др.).
 - `geosite:category-bank-ru` — крупнейшие российские банки.
 - `geosite:steam` — расширенный список Steam/Valve, включая CDN и зеркала.
 - `geosite:win-update` — адреса службы обновлений Windows.
