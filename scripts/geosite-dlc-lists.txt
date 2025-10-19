@@ -8,3 +8,4 @@ ozon
 twitch
 vk
 yandex
+youtube
