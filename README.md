@@ -34,6 +34,7 @@
 - `geosite:category-gaming-4game` — площадка 4game/Lineage II (Innova, Frost Security, форумы).
 - `geosite:win-update` — адреса службы обновлений Windows.
 - `geosite:private` — специальные/локальные домены (RFC 2606/6761 и т.п.).
+- `geosite:youtube` просто ютуб
 - `geosite:ru-all` — объединение всех перечисленных выше российских списков для кратких правил.
 
 
