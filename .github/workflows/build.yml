@@ -69,7 +69,7 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p ../publish ../tmp/geosite-output
-          go run ./ --datapath=../tmp/geosite-data --datname=geosite.dat --exportlists= --togfwlist= --outputpath=../tmp/geosite-output
+          go run ./ --datapath=../tmp/geosite-data --datname=geosite.dat --exportlists=category-ru,category-media-ru,category-gov-ru,mailru,ok,ozon,twitch,vk,yandex,youtube,ru-all,category-streaming-ru,category-bank-ru,category-torrent,okko,steam,category-gaming-mmo,category-gaming-4game,trovo,win-update,category-cdn-telegram,category-ads-all --togfwlist= --outputpath=../tmp/geosite-output
           install -Dp ../tmp/geosite-output/geosite.dat ../publish/geosite.dat
           sha256sum ../publish/geosite.dat > ../publish/geosite.dat.sha256sum
 
