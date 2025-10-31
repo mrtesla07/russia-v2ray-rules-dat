@@ -78,17 +78,143 @@ jobs:
           go mod download
           go build -v -o ../dlc-builder ./
 
-      - name: Build geosite dat
+      - name: Build geosite ru-core
         run: |
           set -euo pipefail
-          mkdir -p ./publish ./tmp/geosite-output
+          mkdir -p ./tmp/geosite-output-ru-core
           ./dlc-builder \
             --datapath=./tmp/geosite-data \
-            --datname=geosite.dat \
-            --exportlists=category-ru-core,category-gov-ru,mailru,ok,ozon,vk,x5,yandex,ru-all,category-media-ru,twitch,youtube,category-streaming-ru,category-bank-ru,category-torrent,okko,steam,category-gaming-mmo,category-gaming-4game,trovo,win-update,category-cdn-telegram,category-ads-all,google-ads,xiaomi-ads \
+            --datname=geosite-ru-core.dat \
+            --exportlists=category-ru-core \
             --togfwlist= \
-            --outputpath=./tmp/geosite-output
-          install -Dp ./tmp/geosite-output/geosite.dat ./publish/geosite.dat
+            --outputpath=./tmp/geosite-output-ru-core
+
+      - name: Build geosite category-gov-ru
+        run: |
+          set -euo pipefail
+          mkdir -p ./tmp/geosite-output-gov
+          ./dlc-builder \
+            --datapath=./tmp/geosite-data \
+            --datname=geosite-category-gov-ru.dat \
+            --exportlists=category-gov-ru \
+            --togfwlist= \
+            --outputpath=./tmp/geosite-output-gov
+
+      - name: Build geosite mailru
+        run: |
+          set -euo pipefail
+          mkdir -p ./tmp/geosite-output-mailru
+          ./dlc-builder \
+            --datapath=./tmp/geosite-data \
+            --datname=geosite-mailru.dat \
+            --exportlists=mailru \
+            --togfwlist= \
+            --outputpath=./tmp/geosite-output-mailru
+
+      - name: Build geosite ok
+        run: |
+          set -euo pipefail
+          mkdir -p ./tmp/geosite-output-ok
+          ./dlc-builder \
+            --datapath=./tmp/geosite-data \
+            --datname=geosite-ok.dat \
+            --exportlists=ok \
+            --togfwlist= \
+            --outputpath=./tmp/geosite-output-ok
+
+      - name: Build geosite ozon
+        run: |
+          set -euo pipefail
+          mkdir -p ./tmp/geosite-output-ozon
+          ./dlc-builder \
+            --datapath=./tmp/geosite-data \
+            --datname=geosite-ozon.dat \
+            --exportlists=ozon \
+            --togfwlist= \
+            --outputpath=./tmp/geosite-output-ozon
+
+      - name: Build geosite vk
+        run: |
+          set -euo pipefail
+          mkdir -p ./tmp/geosite-output-vk
+          ./dlc-builder \
+            --datapath=./tmp/geosite-data \
+            --datname=geosite-vk.dat \
+            --exportlists=vk \
+            --togfwlist= \
+            --outputpath=./tmp/geosite-output-vk
+
+      - name: Build geosite x5
+        run: |
+          set -euo pipefail
+          mkdir -p ./tmp/geosite-output-x5
+          ./dlc-builder \
+            --datapath=./tmp/geosite-data \
+            --datname=geosite-x5.dat \
+            --exportlists=x5 \
+            --togfwlist= \
+            --outputpath=./tmp/geosite-output-x5
+
+      - name: Build geosite yandex
+        run: |
+          set -euo pipefail
+          mkdir -p ./tmp/geosite-output-yandex
+          ./dlc-builder \
+            --datapath=./tmp/geosite-data \
+            --datname=geosite-yandex.dat \
+            --exportlists=yandex \
+            --togfwlist= \
+            --outputpath=./tmp/geosite-output-yandex
+
+      - name: Build geosite core lists
+        run: |
+          set -euo pipefail
+          mkdir -p ./tmp/geosite-output-core
+          ./dlc-builder \
+            --datapath=./tmp/geosite-data \
+            --datname=geosite-core.dat \
+            --exportlists=category-media-ru,twitch,youtube,category-streaming-ru,category-bank-ru,category-torrent,okko,steam,category-gaming-mmo,category-gaming-4game,trovo,win-update,category-cdn-telegram \
+            --togfwlist= \
+            --outputpath=./tmp/geosite-output-core
+
+      - name: Build geosite ru-all
+        run: |
+          set -euo pipefail
+          mkdir -p ./tmp/geosite-output-ru-all
+          ./dlc-builder \
+            --datapath=./tmp/geosite-data \
+            --datname=geosite-ru-all.dat \
+            --exportlists=ru-all \
+            --togfwlist= \
+            --outputpath=./tmp/geosite-output-ru-all
+
+      - name: Build geosite ads
+        run: |
+          set -euo pipefail
+          mkdir -p ./tmp/geosite-output-ads
+          ./dlc-builder \
+            --datapath=./tmp/geosite-data \
+            --datname=geosite-ads.dat \
+            --exportlists=category-ads-all,google-ads,xiaomi-ads \
+            --togfwlist= \
+            --outputpath=./tmp/geosite-output-ads
+
+      - name: Merge geosite dat files
+        run: |
+          set -euo pipefail
+          mkdir -p ./publish
+          go run ./tools/v2dat-lite -o ./publish/geosite.dat \
+            ./tmp/geosite-output-ru-core/geosite-ru-core.dat \
+            ./tmp/geosite-output-gov/geosite-category-gov-ru.dat \
+            ./tmp/geosite-output-mailru/geosite-mailru.dat \
+            ./tmp/geosite-output-ok/geosite-ok.dat \
+            ./tmp/geosite-output-ozon/geosite-ozon.dat \
+            ./tmp/geosite-output-vk/geosite-vk.dat \
+            ./tmp/geosite-output-x5/geosite-x5.dat \
+            ./tmp/geosite-output-yandex/geosite-yandex.dat \
+            ./tmp/geosite-output-core/geosite-core.dat \
+            ./tmp/geosite-output-ru-all/geosite-ru-all.dat \
+            ./tmp/geosite-output-ads/geosite-ads.dat
           sha256sum ./publish/geosite.dat > ./publish/geosite.dat.sha256sum
 
       - name: Generate sing-box srs
