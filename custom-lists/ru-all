@@ -1,5 +1,12 @@
 # Объединённый список российских сервисов.
-include:category-ru
+include:category-ru-core
+include:category-gov-ru
+include:mailru
+include:ok
+include:ozon
+include:vk
+include:x5
+include:yandex
 include:category-media-ru
 include:category-streaming-ru
 include:category-bank-ru

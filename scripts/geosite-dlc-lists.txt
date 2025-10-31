@@ -1,7 +1,6 @@
 # Lists to copy from v2fly/domain-list-community during build
 category-gov-ru
 category-media-ru
-category-ru
 mailru
 ok
 ozon
@@ -9,5 +8,6 @@ twitch
 vk
 yandex
 youtube
+x5
 google-ads
 xiaomi-ads
