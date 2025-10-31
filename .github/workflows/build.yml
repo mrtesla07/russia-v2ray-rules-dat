@@ -46,6 +46,13 @@ jobs:
           go-version-file: ./geodat2srs/go.mod
           cache: false
 
+      - name: Enable swap for build
+        run: |
+          sudo fallocate -l 8G /swapfile
+          sudo chmod 600 /swapfile
+          sudo mkswap /swapfile
+          sudo swapon /swapfile
+
       - name: Prepare custom geosite data
         run: |
           set -euo pipefail
@@ -163,3 +170,9 @@ jobs:
           git commit -m "${{ env.RELEASE_NAME }}"
           git remote add origin "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
           git push -f -u origin release
+
+      - name: Disable swap
+        if: always()
+        run: |
+          sudo swapoff /swapfile
+          sudo rm -f /swapfile
