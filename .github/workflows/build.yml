@@ -71,17 +71,42 @@ jobs:
           go mod download
           go build -v -o ../dlc-builder ./
 
-      - name: Build custom geosite.dat
+      - name: Build base geosite.dat
         run: |
           set -euo pipefail
-          mkdir -p ./publish ./tmp/geosite-output
+          mkdir -p ./tmp/geosite-output-base
           ./dlc-builder \
             --datapath=./tmp/geosite-data \
-            --datname=geosite.dat \
-            --exportlists=category-ru,category-media-ru,category-gov-ru,mailru,ok,ozon,twitch,vk,yandex,youtube,ru-all,category-streaming-ru,category-bank-ru,category-torrent,okko,steam,category-gaming-mmo,category-gaming-4game,trovo,win-update,category-cdn-telegram,category-ads-all \
+            --datname=geosite-base.dat \
+            --exportlists=category-ru,category-media-ru,category-gov-ru,mailru,ok,ozon,twitch,vk,yandex,youtube,ru-all,category-streaming-ru,category-bank-ru,category-torrent,okko,steam,category-gaming-mmo,category-gaming-4game,trovo,win-update,category-cdn-telegram \
             --togfwlist= \
-            --outputpath=./tmp/geosite-output
-          install -Dp ./tmp/geosite-output/geosite.dat ./publish/geosite.dat
+            --outputpath=./tmp/geosite-output-base
+
+      - name: Build ads geosite.dat
+        run: |
+          set -euo pipefail
+          mkdir -p ./tmp/geosite-output-ads
+          ./dlc-builder \
+            --datapath=./tmp/geosite-data \
+            --datname=geosite-ads.dat \
+            --exportlists=category-ads-all,google-ads,xiaomi-ads \
+            --togfwlist= \
+            --outputpath=./tmp/geosite-output-ads
+
+      - name: Build v2dat tool
+        working-directory: domain-list-custom
+        run: |
+          set -euo pipefail
+          go build -v -o ../v2dat ./cmd/v2dat
+
+      - name: Merge geosite dat files
+        run: |
+          set -euo pipefail
+          mkdir -p ./publish
+          ./v2dat merge geosite \
+            -o ./publish/geosite.dat \
+            ./tmp/geosite-output-base/geosite-base.dat \
+            ./tmp/geosite-output-ads/geosite-ads.dat
           sha256sum ./publish/geosite.dat > ./publish/geosite.dat.sha256sum
 
       - name: Generate sing-box srs

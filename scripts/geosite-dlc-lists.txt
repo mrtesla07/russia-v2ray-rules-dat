@@ -9,3 +9,5 @@ twitch
 vk
 yandex
 youtube
+google-ads
+xiaomi-ads

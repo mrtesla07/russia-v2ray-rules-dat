@@ -42,7 +42,7 @@
 Не входят в `ru-all`, но готовы для ручного использования:
 
 - `geosite:category-cdn-telegram` — CDN Telegram для фото/видео/файлов (без звонков).
-- `geosite:category-ads-all` — крупные поставщики баннерной и контекстной рекламы.
+- `geosite:category-ads-all`, `geosite:google-ads`, `geosite:xiaomi-ads` — рекламные домены (внутри `geosite.dat`, но вне `ru-all`).
 - `geosite:youtube` — глобальный видеохостинг (не входит в ru-all).
 
 При необходимости добавляйте новые файлы в `custom-lists/` и/или подключайте дополнительные списки из DLC через `scripts/geosite-dlc-lists.txt`.
