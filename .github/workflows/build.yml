@@ -71,16 +71,38 @@ jobs:
           go mod download
           go build -v -o ../dlc-builder ./
 
-      - name: Build base geosite.dat
+      - name: Build geosite category-ru
         run: |
           set -euo pipefail
-          mkdir -p ./tmp/geosite-output-base
+          mkdir -p ./tmp/geosite-output-ru
           ./dlc-builder \
             --datapath=./tmp/geosite-data \
-            --datname=geosite-base.dat \
-            --exportlists=category-ru,category-media-ru,category-gov-ru,mailru,ok,ozon,twitch,vk,yandex,youtube,ru-all,category-streaming-ru,category-bank-ru,category-torrent,okko,steam,category-gaming-mmo,category-gaming-4game,trovo,win-update,category-cdn-telegram \
+            --datname=geosite-ru.dat \
+            --exportlists=category-ru \
             --togfwlist= \
-            --outputpath=./tmp/geosite-output-base
+            --outputpath=./tmp/geosite-output-ru
+
+      - name: Build geosite core lists
+        run: |
+          set -euo pipefail
+          mkdir -p ./tmp/geosite-output-core
+          ./dlc-builder \
+            --datapath=./tmp/geosite-data \
+            --datname=geosite-core.dat \
+            --exportlists=category-media-ru,category-gov-ru,mailru,ok,ozon,twitch,vk,yandex,youtube,category-streaming-ru,category-bank-ru,category-torrent,okko,steam,category-gaming-mmo,category-gaming-4game,trovo,win-update,category-cdn-telegram \
+            --togfwlist= \
+            --outputpath=./tmp/geosite-output-core
+
+      - name: Build geosite ru-all
+        run: |
+          set -euo pipefail
+          mkdir -p ./tmp/geosite-output-ru-all
+          ./dlc-builder \
+            --datapath=./tmp/geosite-data \
+            --datname=geosite-ru-all.dat \
+            --exportlists=ru-all \
+            --togfwlist= \
+            --outputpath=./tmp/geosite-output-ru-all
 
       - name: Build ads geosite.dat
         run: |
@@ -105,7 +127,9 @@ jobs:
           mkdir -p ./publish
           ./v2dat merge geosite \
             -o ./publish/geosite.dat \
-            ./tmp/geosite-output-base/geosite-base.dat \
+            ./tmp/geosite-output-ru/geosite-ru.dat \
+            ./tmp/geosite-output-core/geosite-core.dat \
+            ./tmp/geosite-output-ru-all/geosite-ru-all.dat \
             ./tmp/geosite-output-ads/geosite-ads.dat
           sha256sum ./publish/geosite.dat > ./publish/geosite.dat.sha256sum
 
