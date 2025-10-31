@@ -19,10 +19,10 @@
 
 Основной `geosite.dat` содержит следующие разделы:
 
-- `geosite:category-ru` — базовый список доменов в зоне RU/СНГ из `domain-list-community` (включает подсписки `category-gov-ru`, `mailru`, `ok`, `ozon`, `vk`, `yandex`).
+- `geosite:category-ru-core` — домены верхнего уровня RU/SU и их IDN-варианты.
 - `geosite:category-media-ru` — крупные российские медиа.
 - `geosite:category-gov-ru` — государственные сервисы и порталы.
-- `geosite:mailru`, `geosite:ok`, `geosite:ozon`, `geosite:vk`, `geosite:yandex` — точечные списки из DLC.
+- `geosite:mailru`, `geosite:ok`, `geosite:ozon`, `geosite:vk`, `geosite:x5`, `geosite:yandex` — точечные списки из DLC.
 - `geosite:category-torrent` — трекеры и dht-роутеры (см. `custom-lists/category-torrent`).
 - `geosite:twitch` — официальный список Twitch из DLC.
 - `geosite:trovo` — добавлен вручную, охватывает `trovo.live`, `trovoapp.com` и их поддомены.
