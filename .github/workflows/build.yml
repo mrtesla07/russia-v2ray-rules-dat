@@ -200,22 +200,22 @@ jobs:
             --outputpath=./tmp/geosite-output-ads
 
       - name: Merge geosite dat files
+        working-directory: tools/v2dat-lite
         run: |
           set -euo pipefail
-          mkdir -p ./publish
-          go run ./tools/v2dat-lite -o ./publish/geosite.dat \
-            ./tmp/geosite-output-ru-core/geosite-ru-core.dat \
-            ./tmp/geosite-output-gov/geosite-category-gov-ru.dat \
-            ./tmp/geosite-output-mailru/geosite-mailru.dat \
-            ./tmp/geosite-output-ok/geosite-ok.dat \
-            ./tmp/geosite-output-ozon/geosite-ozon.dat \
-            ./tmp/geosite-output-vk/geosite-vk.dat \
-            ./tmp/geosite-output-x5/geosite-x5.dat \
-            ./tmp/geosite-output-yandex/geosite-yandex.dat \
-            ./tmp/geosite-output-core/geosite-core.dat \
-            ./tmp/geosite-output-ru-all/geosite-ru-all.dat \
-            ./tmp/geosite-output-ads/geosite-ads.dat
-          sha256sum ./publish/geosite.dat > ./publish/geosite.dat.sha256sum
+          go run . -o ../../publish/geosite.dat \
+            ../../tmp/geosite-output-ru-core/geosite-ru-core.dat \
+            ../../tmp/geosite-output-gov/geosite-category-gov-ru.dat \
+            ../../tmp/geosite-output-mailru/geosite-mailru.dat \
+            ../../tmp/geosite-output-ok/geosite-ok.dat \
+            ../../tmp/geosite-output-ozon/geosite-ozon.dat \
+            ../../tmp/geosite-output-vk/geosite-vk.dat \
+            ../../tmp/geosite-output-x5/geosite-x5.dat \
+            ../../tmp/geosite-output-yandex/geosite-yandex.dat \
+            ../../tmp/geosite-output-core/geosite-core.dat \
+            ../../tmp/geosite-output-ru-all/geosite-ru-all.dat \
+            ../../tmp/geosite-output-ads/geosite-ads.dat
+          sha256sum ../../publish/geosite.dat > ../../publish/geosite.dat.sha256sum
 
       - name: Generate sing-box srs
         run: |
