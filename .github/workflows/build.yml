@@ -173,7 +173,7 @@ jobs:
           ./dlc-builder \
             --datapath=./tmp/geosite-data \
             --datname=geosite-core.dat \
-            --exportlists=category-media-ru,twitch,youtube,category-streaming-ru,category-bank-ru,category-torrent,okko,steam,category-gaming-mmo,category-gaming-4game,trovo,win-update \
+            --exportlists=category-media-ru,twitch,youtube,category-streaming-ru,category-bank-ru,category-torrent,okko,steam,category-gaming-mmo,category-gaming-4game,trovo,win-update,telegram-cdn \
             --togfwlist= \
             --outputpath=./tmp/geosite-output-core
 
@@ -187,24 +187,6 @@ jobs:
             --exportlists=ru-all \
             --togfwlist= \
             --outputpath=./tmp/geosite-output-ru-all
-
-      - name: Build geosite telegram
-        run: |
-          set -euo pipefail
-          mkdir -p ./tmp/geosite-output-telegram
-          ./dlc-builder \
-            --datapath=./tmp/geosite-data \
-            --datname=geosite-telegram.dat \
-            --exportlists=category-cdn-telegram \
-            --togfwlist= \
-            --outputpath=./tmp/geosite-output-telegram
-
-      - name: Publish telegram geosite
-        run: |
-          set -euo pipefail
-          mkdir -p ./publish
-          install -Dp ./tmp/geosite-output-telegram/geosite-telegram.dat ./publish/geosite-telegram.dat
-          sha256sum ./publish/geosite-telegram.dat > ./publish/geosite-telegram.dat.sha256sum
 
       - name: Build geosite ads
         run: |
