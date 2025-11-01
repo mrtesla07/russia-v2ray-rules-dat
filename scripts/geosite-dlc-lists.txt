@@ -11,4 +11,3 @@ youtube
 x5
 google-ads
 xiaomi-ads
-category-cdn-telegram
