@@ -195,7 +195,7 @@ jobs:
           ./dlc-builder \
             --datapath=./tmp/geosite-data \
             --datname=geosite-ads.dat \
-            --exportlists=category-ads-all,google-ads,xiaomi-ads \
+            --exportlists=category-ads-all,google-ads,xiaomi-ads,bytedance-ads,tencent-ads \
             --togfwlist= \
             --outputpath=./tmp/geosite-output-ads
 

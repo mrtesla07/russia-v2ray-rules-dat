@@ -11,3 +11,5 @@ youtube
 x5
 google-ads
 xiaomi-ads
+bytedance-ads
+tencent-ads
