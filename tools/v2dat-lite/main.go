@@ -7,7 +7,7 @@ import (
 	"os"
 	"sort"
 
-	router "github.com/v2fly/v2ray-core/v5/app/router"
+	router "github.com/v2fly/v2ray-core/v5/app/router/routercommon"
 	"google.golang.org/protobuf/proto"
 )
 
